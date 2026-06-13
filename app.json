@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Техалмаз",
+    "slug": "tehalmaz",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./src/assets/icon.png",
+    "splash": {
+      "image": "./src/assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "ru.tehalmaz.app",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "Для прикрепления фото к заявке"
+      }
+    },
+    "android": {
+      "package": "ru.tehalmaz.app",
+      "versionCode": 1,
+      "adaptiveIcon": {
+        "foregroundImage": "./src/assets/icon.png",
+        "backgroundColor": "#1A1A2E"
+      },
+      "permissions": ["INTERNET"],
+      "navigationBar": {
+        "backgroundColor": "#FFFFFF",
+        "barStyle": "dark-content"
+      }
+    },
+    "extra": {
+      "apiUrl": "https://functions.yandexcloud.net/d4efrcscfce1vugur7lr"
+    }
+  }
+}

@@ -1,0 +1,390 @@
+// Переводы приложения «Техалмаз». Русский — основной язык.
+export const translations = {
+  ru: {
+    // ── Навигация / вкладки ──
+    tab_home: 'Главная',
+    tab_services: 'Услуги',
+    tab_calc: 'Калькулятор',
+    tab_order: 'Заявка',
+
+    // ── Главная ──
+    home_company: 'ООО «Техалмаз»',
+    home_about: ' — алмазное бурение и резка железобетона. Работаем с 2019 года: свой инструмент, выезд в день обращения, без пыли, ударов и трещин.',
+    home_stat_years_num: '5 лет',
+    home_stat_years_lbl: 'на рынке',
+    home_stat_obj_num: '500+',
+    home_stat_obj_lbl: 'объектов',
+    home_stat_support_num: '24/7',
+    home_stat_support_lbl: 'выезд',
+    home_call_label: 'ПОЗВОНИТЬ — БЕСПЛАТНЫЙ ЗАМЕР',
+    home_btn_calc: 'Калькулятор стоимости',
+    home_btn_order: 'Оставить заявку',
+
+    // ── Услуги ──
+    svc_drill_title: 'Алмазное сверление',
+    svc_drill_sub: 'Отверстия диаметром 4–600 мм в бетоне, кирпиче и железобетоне.',
+    svc_drill_price: 'от 29 ₽/см',
+    svc_drill_items: [
+      'Под коммуникации: вода, канализация, отопление',
+      'Под вентиляцию и кондиционеры',
+      'Под анкеры и крепёж',
+      'Сквозное, глухое и под углом',
+    ],
+    svc_drill_note: 'Цена за 1 см глубины — зависит от диаметра коронки.',
+
+    svc_cut_title: 'Алмазная резка',
+    svc_cut_sub: 'Проёмы и штробы в стенах и перекрытиях, без пыли и вибрации.',
+    svc_cut_price: 'от 368 ₽/пог.м',
+    svc_cut_items: [
+      'Дверные и оконные проёмы в стенах',
+      'Проёмы в перекрытиях: лестницы, лифты, шахты',
+      'Штробы под коммуникации',
+      'Кирпич, гипс, бетон и железобетон',
+    ],
+    svc_cut_note: 'Цена за 1 пог.м: кирпич/гипс — от 368 ₽, железобетон — от 511 ₽.',
+
+    svc_demo_title: 'Демонтаж',
+    svc_demo_sub: 'Демонтаж конструкций отбойным молотком, расчёт за 1 м³.',
+    svc_demo_price: 'от 6 000 ₽/м³',
+    svc_demo_items: [
+      'Стяжки и фундаменты',
+      'Колонны и ступени',
+      'Перегородки и кирпичная кладка',
+      'Локальный демонтаж железобетона',
+    ],
+    svc_demo_note: 'Кирпич/блок — от 6 000 ₽/м³, железобетон — от 12 500 ₽/м³.',
+
+    svc_btn_calc: 'Рассчитать',
+    svc_btn_order: 'Заявка',
+    svc_bottom_note: '💡 Точная стоимость рассчитывается после осмотра. Используйте калькулятор для оценки.',
+
+    // ── Калькулятор: вкладки ──
+    calc_svc_drill: 'Сверление',
+    calc_svc_cut: 'Резка',
+    calc_svc_demo: 'Демонтаж',
+
+    // ── Калькулятор: подписи полей ──
+    calc_diameter: 'Диаметр коронки, мм',
+    calc_depth: 'Глубина сверления',
+    calc_holes: 'Количество отверстий',
+    calc_reinf: 'Армирование',
+    calc_reinf_rc: 'Армирование (для ж/б)',
+    calc_install: 'Установка',
+    calc_position: 'Положение',
+    calc_height: 'Высота работ',
+    calc_power: 'Электроэнергия на объекте',
+    calc_water: 'Водоснабжение на объекте',
+    calc_tier: 'Форма оплаты',
+    calc_material: 'Материал конструкции',
+    calc_thickness: 'Толщина конструкции',
+    calc_length: 'Длина реза, м.п.',
+    calc_method: 'Способ работ',
+    calc_cutpos: 'Положение реза',
+    calc_hard: 'Труднодоступное место',
+    calc_demo_material: 'Материал',
+    calc_volume: 'Объём, м³',
+
+    // ── Калькулятор: варианты ──
+    reinf_none: 'Нет',
+    reinf_r16: '16–20 мм',
+    reinf_r20: '20–25 мм',
+    reinf_r28: '28–32 мм',
+    install_std: 'Обычная',
+    install_hand: 'Ручная ×1.3',
+    install_vac: 'Вакуумная станина ×1.5',
+    pos_std: 'Обычное',
+    pos_angle: 'Под углом ×1.2',
+    pos_ceiling: 'В потолок ×3.0',
+    height_low: 'до 1.8 м',
+    height_mid: '1.8–3.0 м ×1.2',
+    height_high: 'свыше 3.0 м ×1.3',
+    height_auto: 'на автовышке ×1.3',
+    cutpos_std: 'Обычное',
+    cutpos_angle: 'Под углом ×1.2',
+    method_hand: 'Ручные резчики',
+    method_wall: 'Стенорезная система (380 В)',
+    power_yes: 'Есть',
+    power_v220: 'Нет — 220 В (от 15 000 ₽/сут)',
+    power_v380: 'Нет — 380 В (от 50 000 ₽/сут)',
+    water_yes: 'Есть',
+    water_no: 'Без воды (по согласованию)',
+    hard_no: 'Нет',
+    hard_yes: 'Да ×2.0',
+    tier_cash: 'Наличные',
+    tier_ip: 'ИП',
+    tier_nds: 'С НДС',
+    demo_brick: 'Кирпич / блок',
+    demo_rc_low: 'Ж/Б, от пола < 1 м',
+    demo_rc_high: 'Ж/Б, от пола > 1 м',
+    mat_brick: 'Кирпич / гипс',
+    mat_rc: 'Железобетон',
+
+    // ── Калькулятор: результат ──
+    calc_approx: 'ОРИЕНТИРОВОЧНО',
+    calc_contract: 'Договорная',
+    calc_contract_desc: 'Толщина свыше 500 мм рассчитывается индивидуально.\nОставьте заявку — мы сделаем расчёт.',
+    calc_work_cost: 'Стоимость работ',
+    calc_min_visit: 'Минимальный выезд',
+    calc_generator: 'Генератор (за смену)',
+    calc_after_measure: 'Окончательная цена — после замера на объекте.',
+    calc_min_applied: 'Сумма работ ниже минимального выезда — берётся минимум.',
+    calc_btn_order: 'Заказать по этой цене',
+    calc_disclaimer: '⚠️ Расчёт ориентировочный. На итог влияют: армирование, высота, доступ к объекту, электро- и водоснабжение, срочность. Точную цену называем после замера.',
+    calc_note_gen: 'генератор учтён за 1 смену — итог зависит от числа смен',
+    calc_note_water: 'нет водоснабжения — по согласованию',
+
+    // ── Единицы и слова (для расчёта/заявки) ──
+    u_mm: 'мм', u_cm: 'см', u_pcs: 'шт.', u_m: 'м.п.', u_m3: 'м³',
+    bd_diameter: 'Диаметр', bd_depth: 'глубина', bd_thickness: 'Толщина', bd_volume: 'Объём',
+
+    // ── Текст заявки из калькулятора ──
+    ot_drill: 'Алмазное сверление',
+    ot_cut: 'Алмазная резка',
+    ot_demo: 'Демонтаж (отбойный молоток)',
+    ot_diameter: 'Диаметр', ot_depth: 'Глубина', ot_qty: 'Количество',
+    ot_reinf: 'Армирование', ot_install: 'Установка', ot_position: 'Положение',
+    ot_height: 'Высота работ', ot_power: 'Электроэнергия', ot_water: 'Водоснабжение',
+    ot_tier: 'Форма оплаты', ot_material: 'Материал', ot_thickness: 'Толщина',
+    ot_cutlen: 'Длина реза', ot_method: 'Способ', ot_cutpos: 'Положение реза',
+    ot_hard_yes: 'Труднодоступно: да', ot_approx: 'Ориентировочно',
+    ot_mat_brick: 'кирпич / гипс', ot_mat_rc: 'железобетон',
+
+    // ── Заявка ──
+    ord_subtitle: 'Перезвоним за 15 минут',
+    ord_name: 'Имя',
+    ord_name_ph: 'Как к вам обращаться',
+    ord_phone: 'Телефон',
+    ord_task: 'Что нужно сделать',
+    ord_task_ph: 'Например: 4 отверстия диаметром 112 мм в бетоне 300 мм, адрес, удобное время',
+    ord_consent_1: 'Согласен на обработку персональных данных в соответствии с ',
+    ord_consent_link: 'политикой конфиденциальности',
+    ord_submit: 'Отправить заявку',
+    ord_footer: 'Нажимая кнопку, вы соглашаетесь с условиями обработки данных.',
+    warn_name_digits: 'Имя не должно содержать цифры',
+    warn_name_short: 'Слишком короткое имя',
+    warn_name_long: 'Слишком длинное имя',
+    warn_phone: 'Номер неполный — нужно 11 цифр',
+    warn_desc: 'Слишком длинное описание',
+    err_title: 'Ошибка',
+    err_name_empty: 'Введите ваше имя',
+    err_name_digits: 'Имя не должно содержать цифры',
+    err_name_short: 'Введите имя полностью',
+    err_phone: 'Введите корректный номер телефона (11 цифр)',
+    err_consent_title: 'Необходимо согласие',
+    err_consent: 'Пожалуйста, согласитесь с обработкой ПД',
+    err_server: 'Ошибка сервера',
+    err_network: 'Проверьте подключение к интернету.',
+    ord_success_title: 'Заявка отправлена!',
+    ord_success_text: 'Перезвоним на номер',
+    ord_success_call: '📞 Позвонить сейчас',
+    ord_success_again: 'Отправить ещё заявку',
+    ord_privacy_title: 'Политика конфиденциальности',
+    ord_privacy_accept: 'Принимаю и закрыть',
+    privacy_text: `ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
+
+ООО «ТЕХАЛМАЗ» (ИНН 2311284038, ОГРН 1192375011608)
+Регистрационный номер оператора ПД: 23-25-046938
+
+Мы обрабатываем ваши персональные данные (ФИО и номер телефона) исключительно для:
+• приёма и обработки вашей заявки;
+• связи с вами для согласования условий заказа.
+
+Ваши данные хранятся на серверах на территории Российской Федерации и не передаются третьим лицам.
+
+Для отзыва согласия напишите на: tehalmaz@bk.ru`,
+  },
+
+  en: {
+    // ── Navigation / tabs ──
+    tab_home: 'Home',
+    tab_services: 'Services',
+    tab_calc: 'Calculator',
+    tab_order: 'Request',
+
+    // ── Home ──
+    home_company: 'Tekhalmaz LLC',
+    home_about: ' — diamond drilling and reinforced-concrete cutting. Working since 2019: our own equipment, same-day call-out, no dust, impact or cracks.',
+    home_stat_years_num: '5 years',
+    home_stat_years_lbl: 'in business',
+    home_stat_obj_num: '500+',
+    home_stat_obj_lbl: 'projects',
+    home_stat_support_num: '24/7',
+    home_stat_support_lbl: 'on call',
+    home_call_label: 'CALL — FREE MEASUREMENT',
+    home_btn_calc: 'Price calculator',
+    home_btn_order: 'Leave a request',
+
+    // ── Services ──
+    svc_drill_title: 'Diamond drilling',
+    svc_drill_sub: 'Holes 4–600 mm in diameter in concrete, brick and reinforced concrete.',
+    svc_drill_price: 'from 29 ₽/cm',
+    svc_drill_items: [
+      'For utilities: water, sewage, heating',
+      'For ventilation and air conditioners',
+      'For anchors and fasteners',
+      'Through, blind and angled',
+    ],
+    svc_drill_note: 'Price per 1 cm of depth — depends on the core diameter.',
+
+    svc_cut_title: 'Diamond cutting',
+    svc_cut_sub: 'Openings and chases in walls and slabs, without dust or vibration.',
+    svc_cut_price: 'from 368 ₽/lin.m',
+    svc_cut_items: [
+      'Door and window openings in walls',
+      'Openings in slabs: stairs, lifts, shafts',
+      'Chases for utilities',
+      'Brick, gypsum, concrete and reinforced concrete',
+    ],
+    svc_cut_note: 'Price per 1 lin.m: brick/gypsum — from 368 ₽, reinforced concrete — from 511 ₽.',
+
+    svc_demo_title: 'Demolition',
+    svc_demo_sub: 'Demolition of structures with a jackhammer, charged per 1 m³.',
+    svc_demo_price: 'from 6,000 ₽/m³',
+    svc_demo_items: [
+      'Screeds and foundations',
+      'Columns and steps',
+      'Partitions and brickwork',
+      'Local demolition of reinforced concrete',
+    ],
+    svc_demo_note: 'Brick/block — from 6,000 ₽/m³, reinforced concrete — from 12,500 ₽/m³.',
+
+    svc_btn_calc: 'Calculate',
+    svc_btn_order: 'Request',
+    svc_bottom_note: '💡 The exact cost is calculated after an inspection. Use the calculator for an estimate.',
+
+    // ── Calculator: tabs ──
+    calc_svc_drill: 'Drilling',
+    calc_svc_cut: 'Cutting',
+    calc_svc_demo: 'Demolition',
+
+    // ── Calculator: field labels ──
+    calc_diameter: 'Core diameter, mm',
+    calc_depth: 'Drilling depth',
+    calc_holes: 'Number of holes',
+    calc_reinf: 'Reinforcement',
+    calc_reinf_rc: 'Reinforcement (for RC)',
+    calc_install: 'Drilling rig',
+    calc_position: 'Position',
+    calc_height: 'Work height',
+    calc_power: 'Power on site',
+    calc_water: 'Water supply on site',
+    calc_tier: 'Payment type',
+    calc_material: 'Structure material',
+    calc_thickness: 'Structure thickness',
+    calc_length: 'Cut length, lin.m',
+    calc_method: 'Work method',
+    calc_cutpos: 'Cut position',
+    calc_hard: 'Hard-to-reach area',
+    calc_demo_material: 'Material',
+    calc_volume: 'Volume, m³',
+
+    // ── Calculator: options ──
+    reinf_none: 'No',
+    reinf_r16: '16–20 mm',
+    reinf_r20: '20–25 mm',
+    reinf_r28: '28–32 mm',
+    install_std: 'Standard',
+    install_hand: 'Manual ×1.3',
+    install_vac: 'Vacuum base ×1.5',
+    pos_std: 'Standard',
+    pos_angle: 'Angled ×1.2',
+    pos_ceiling: 'Into ceiling ×3.0',
+    height_low: 'up to 1.8 m',
+    height_mid: '1.8–3.0 m ×1.2',
+    height_high: 'over 3.0 m ×1.3',
+    height_auto: 'on aerial platform ×1.3',
+    cutpos_std: 'Standard',
+    cutpos_angle: 'Angled ×1.2',
+    method_hand: 'Hand cutters',
+    method_wall: 'Wall saw (380 V)',
+    power_yes: 'Available',
+    power_v220: 'No — 220 V (from 15,000 ₽/day)',
+    power_v380: 'No — 380 V (from 50,000 ₽/day)',
+    water_yes: 'Available',
+    water_no: 'No water (by agreement)',
+    hard_no: 'No',
+    hard_yes: 'Yes ×2.0',
+    tier_cash: 'Cash',
+    tier_ip: 'Sole prop.',
+    tier_nds: 'With VAT',
+    demo_brick: 'Brick / block',
+    demo_rc_low: 'RC, from floor < 1 m',
+    demo_rc_high: 'RC, from floor > 1 m',
+    mat_brick: 'Brick / gypsum',
+    mat_rc: 'Reinforced concrete',
+
+    // ── Calculator: result ──
+    calc_approx: 'ESTIMATE',
+    calc_contract: 'Negotiable',
+    calc_contract_desc: 'Thickness over 500 mm is calculated individually.\nLeave a request — we will prepare a quote.',
+    calc_work_cost: 'Work cost',
+    calc_min_visit: 'Minimum call-out',
+    calc_generator: 'Generator (per shift)',
+    calc_after_measure: 'Final price — after an on-site measurement.',
+    calc_min_applied: 'Work total is below the minimum call-out — the minimum applies.',
+    calc_btn_order: 'Order at this price',
+    calc_disclaimer: '⚠️ The estimate is approximate. The total is affected by: reinforcement, height, site access, power and water supply, urgency. We quote the exact price after a measurement.',
+    calc_note_gen: 'generator counted per 1 shift — the total depends on the number of shifts',
+    calc_note_water: 'no water supply — by agreement',
+
+    // ── Units and words ──
+    u_mm: 'mm', u_cm: 'cm', u_pcs: 'pcs', u_m: 'lin.m', u_m3: 'm³',
+    bd_diameter: 'Diameter', bd_depth: 'depth', bd_thickness: 'Thickness', bd_volume: 'Volume',
+
+    // ── Request text from calculator ──
+    ot_drill: 'Diamond drilling',
+    ot_cut: 'Diamond cutting',
+    ot_demo: 'Demolition (jackhammer)',
+    ot_diameter: 'Diameter', ot_depth: 'Depth', ot_qty: 'Quantity',
+    ot_reinf: 'Reinforcement', ot_install: 'Rig', ot_position: 'Position',
+    ot_height: 'Work height', ot_power: 'Power', ot_water: 'Water',
+    ot_tier: 'Payment', ot_material: 'Material', ot_thickness: 'Thickness',
+    ot_cutlen: 'Cut length', ot_method: 'Method', ot_cutpos: 'Cut position',
+    ot_hard_yes: 'Hard-to-reach: yes', ot_approx: 'Estimate',
+    ot_mat_brick: 'brick / gypsum', ot_mat_rc: 'reinforced concrete',
+
+    // ── Request ──
+    ord_subtitle: 'We will call back within 15 minutes',
+    ord_name: 'Name',
+    ord_name_ph: 'How to address you',
+    ord_phone: 'Phone',
+    ord_task: 'What needs to be done',
+    ord_task_ph: 'E.g.: 4 holes 112 mm in diameter in 300 mm concrete, address, convenient time',
+    ord_consent_1: 'I agree to the processing of personal data in accordance with the ',
+    ord_consent_link: 'privacy policy',
+    ord_submit: 'Send request',
+    ord_footer: 'By tapping the button, you agree to the terms of data processing.',
+    warn_name_digits: 'The name must not contain digits',
+    warn_name_short: 'Name is too short',
+    warn_name_long: 'Name is too long',
+    warn_phone: 'Number is incomplete — 11 digits required',
+    warn_desc: 'Description is too long',
+    err_title: 'Error',
+    err_name_empty: 'Enter your name',
+    err_name_digits: 'The name must not contain digits',
+    err_name_short: 'Enter your full name',
+    err_phone: 'Enter a valid phone number (11 digits)',
+    err_consent_title: 'Consent required',
+    err_consent: 'Please agree to the processing of personal data',
+    err_server: 'Server error',
+    err_network: 'Check your internet connection.',
+    ord_success_title: 'Request sent!',
+    ord_success_text: 'We will call you back at',
+    ord_success_call: '📞 Call now',
+    ord_success_again: 'Send another request',
+    ord_privacy_title: 'Privacy policy',
+    ord_privacy_accept: 'Accept and close',
+    privacy_text: `PRIVACY POLICY
+
+Tekhalmaz LLC (INN 2311284038, OGRN 1192375011608)
+Personal data operator registration number: 23-25-046938
+
+We process your personal data (full name and phone number) solely to:
+• receive and process your request;
+• contact you to agree on the terms of the order.
+
+Your data is stored on servers within the Russian Federation and is not shared with third parties.
+
+To withdraw consent, write to: tehalmaz@bk.ru`,
+  },
+};
