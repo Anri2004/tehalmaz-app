@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
+
+// Фото услуг (по виду работ)
+const IMAGES = {
+  drill: require('../assets/services/drill.webp'),
+  cut:   require('../assets/services/cut.webp'),
+  demo:  require('../assets/services/demo.webp'),
+};
 
 export default function ServicesScreen({ navigation }) {
   const { theme } = useTheme();
@@ -26,9 +33,7 @@ export default function ServicesScreen({ navigation }) {
           activeOpacity={0.85}
         >
           <View style={s.row}>
-            <View style={s.thumb}>
-              <Text style={s.thumbText}>{svc.title.split(' ').slice(-1)[0].toLowerCase()}</Text>
-            </View>
+            <Image source={IMAGES[svc.calc]} style={s.thumb} resizeMode="cover" />
             <View style={s.info}>
               <Text style={s.title}>{svc.title}</Text>
               <Text style={s.sub}>{svc.sub}</Text>
@@ -90,10 +95,9 @@ const styles = (t) => StyleSheet.create({
   },
   row:   { flexDirection: 'row', alignItems: 'center' },
   thumb: {
-    width: 72, height: 72, borderRadius: 10, backgroundColor: t.bg,
-    alignItems: 'center', justifyContent: 'center', marginRight: 12, flexShrink: 0,
+    width: 72, height: 72, borderRadius: 10, backgroundColor: t.chip,
+    marginRight: 12, flexShrink: 0,
   },
-  thumbText: { color: t.textMuted, fontSize: 11, textAlign: 'center' },
   info:      { flex: 1 },
   title:     { fontSize: 15, fontWeight: '700', color: t.text, marginBottom: 4 },
   sub:       { fontSize: 13, color: t.textSub, lineHeight: 18, marginBottom: 6 },
