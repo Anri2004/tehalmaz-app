@@ -121,7 +121,18 @@ function AppNavigator() {
       >
         <Tab.Screen name="Главная"     component={HomeScreen}     options={{ headerShown: false }} />
         <Tab.Screen name="Услуги"      component={ServicesScreen} />
-        <Tab.Screen name="Калькулятор" component={CalculatorScreen} />
+        <Tab.Screen name="Калькулятор" component={CalculatorScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: theme.header,
+              elevation: 0,
+              shadowColor: 'transparent',
+              shadowOpacity: 0,
+              borderBottomWidth: 0.5,
+              borderBottomColor: theme.border,
+            },
+          }}
+        />
         <Tab.Screen name="Заявка"      component={OrderScreen} />
         <Tab.Screen name="О нас"       component={AboutScreen} />
       </Tab.Navigator>
