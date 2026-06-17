@@ -10,13 +10,6 @@ const IMAGES = {
   demo:  require('../assets/services/demo.webp'),
 };
 
-// Какую часть фото показывать в обложке: flex-start (верх) / center / flex-end (низ)
-const FOCUS = {
-  drill: 'flex-start',
-  cut:   'center',
-  demo:  'center',
-};
-
 export default function ServicesScreen({ navigation }) {
   const { theme } = useTheme();
   const { t } = useLang();
@@ -39,8 +32,8 @@ export default function ServicesScreen({ navigation }) {
           onPress={() => setExpanded(expanded === svc.id ? null : svc.id)}
           activeOpacity={0.9}
         >
-          <View style={[s.coverWrap, { justifyContent: FOCUS[svc.calc] }]}>
-            <Image source={IMAGES[svc.calc]} style={s.cover} />
+          <View style={s.coverWrap}>
+            <Image source={IMAGES[svc.calc]} style={s.cover} resizeMode="cover" />
             <View style={s.coverPrice}>
               <Text style={s.priceText}>{svc.price}</Text>
             </View>
@@ -103,8 +96,8 @@ const styles = (t) => StyleSheet.create({
     backgroundColor: t.card, borderRadius: 14, marginBottom: 14,
     borderWidth: 0.5, borderColor: t.border, overflow: 'hidden',
   },
-  coverWrap: { width: '100%', height: 210, overflow: 'hidden' },
-  cover:     { width: '100%', aspectRatio: 9 / 16 },
+  coverWrap: { width: '100%', height: 160 },
+  cover:     { width: '100%', height: '100%' },
   coverPrice:{
     position: 'absolute', left: 12, bottom: 12,
     backgroundColor: 'rgba(0,0,0,0.65)', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5,
