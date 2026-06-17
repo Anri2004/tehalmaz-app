@@ -96,7 +96,7 @@ const styles = (t) => StyleSheet.create({
     backgroundColor: t.card, borderRadius: 14, marginBottom: 14,
     borderWidth: 0.5, borderColor: t.border, overflow: 'hidden',
   },
-  coverWrap: { width: '100%', height: 160 },
+  coverWrap: { width: '100%', height: 210 },
   cover:     { width: '100%', height: '100%' },
   coverPrice:{
     position: 'absolute', left: 12, bottom: 12,
