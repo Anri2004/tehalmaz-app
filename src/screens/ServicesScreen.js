@@ -30,21 +30,23 @@ export default function ServicesScreen({ navigation }) {
           key={svc.id}
           style={s.card}
           onPress={() => setExpanded(expanded === svc.id ? null : svc.id)}
-          activeOpacity={0.85}
+          activeOpacity={0.9}
         >
-          <View style={s.row}>
-            <Image source={IMAGES[svc.calc]} style={s.thumb} resizeMode="cover" />
-            <View style={s.info}>
-              <Text style={s.title}>{svc.title}</Text>
-              <Text style={s.sub}>{svc.sub}</Text>
-              <View style={s.priceBadge}>
-                <Text style={s.priceText}>{svc.price}</Text>
-              </View>
+          <View style={s.coverWrap}>
+            <Image source={IMAGES[svc.calc]} style={s.cover} resizeMode="cover" />
+            <View style={s.coverPrice}>
+              <Text style={s.priceText}>{svc.price}</Text>
             </View>
-            <Text style={[s.arrow, { color: theme.textMuted }]}>
-              {expanded === svc.id ? '⌄' : '›'}
-            </Text>
           </View>
+
+          <View style={s.cardBody}>
+            <View style={s.titleRow}>
+              <Text style={s.title}>{svc.title}</Text>
+              <Text style={[s.arrow, { color: theme.textMuted }]}>
+                {expanded === svc.id ? '⌄' : '›'}
+              </Text>
+            </View>
+            <Text style={s.sub}>{svc.sub}</Text>
 
           {expanded === svc.id && (
             <View style={s.details}>
@@ -75,6 +77,7 @@ export default function ServicesScreen({ navigation }) {
               </View>
             </View>
           )}
+          </View>
         </TouchableOpacity>
       ))}
 
@@ -90,19 +93,21 @@ const styles = (t) => StyleSheet.create({
   content:   { padding: 16, paddingBottom: 32 },
 
   card: {
-    backgroundColor: t.card, borderRadius: 14, padding: 14, marginBottom: 10,
-    borderWidth: 0.5, borderColor: t.border,
+    backgroundColor: t.card, borderRadius: 14, marginBottom: 14,
+    borderWidth: 0.5, borderColor: t.border, overflow: 'hidden',
   },
-  row:   { flexDirection: 'row', alignItems: 'center' },
-  thumb: {
-    width: 72, height: 72, borderRadius: 10, backgroundColor: t.chip,
-    marginRight: 12, flexShrink: 0,
+  coverWrap: { width: '100%', height: 160 },
+  cover:     { width: '100%', height: '100%' },
+  coverPrice:{
+    position: 'absolute', left: 12, bottom: 12,
+    backgroundColor: 'rgba(0,0,0,0.65)', borderRadius: 8, paddingHorizontal: 10, paddingVertical: 5,
   },
-  info:      { flex: 1 },
-  title:     { fontSize: 15, fontWeight: '700', color: t.text, marginBottom: 4 },
-  sub:       { fontSize: 13, color: t.textSub, lineHeight: 18, marginBottom: 6 },
-  priceBadge:{ alignSelf: 'flex-start', backgroundColor: t.redLight, borderRadius: 6, paddingHorizontal: 8, paddingVertical: 3 },
-  priceText: { color: t.red, fontWeight: '700', fontSize: 12 },
+  priceText: { color: '#fff', fontWeight: '800', fontSize: 13 },
+
+  cardBody:  { padding: 14 },
+  titleRow:  { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
+  title:     { fontSize: 17, fontWeight: '800', color: t.text, flex: 1 },
+  sub:       { fontSize: 13, color: t.textSub, lineHeight: 18, marginTop: 4 },
   arrow:     { fontSize: 22, marginLeft: 8 },
 
   details:   { marginTop: 12 },
