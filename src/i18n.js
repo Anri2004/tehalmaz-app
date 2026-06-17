@@ -9,11 +9,11 @@ export const translations = {
 
     // ── Главная ──
     home_company: 'ООО «Техалмаз»',
-    home_about: ' — алмазное бурение и резка железобетона. Работаем с 2019 года: свой инструмент, выезд в день обращения, без пыли, ударов и трещин.',
-    home_stat_years_num: '5 лет',
-    home_stat_years_lbl: 'на рынке',
-    home_stat_obj_num: '500+',
-    home_stat_obj_lbl: 'объектов',
+    home_about: ' — алмазное сверление, резка и демонтаж железобетона. Работаем с 2019 года, круглосуточно: свой инструмент, выезд в день обращения, без пыли, ударов и трещин.',
+    home_stat_years_num: '13 000+',
+    home_stat_years_lbl: 'клиентов',
+    home_stat_obj_num: '5,0 ★',
+    home_stat_obj_lbl: 'рейтинг',
     home_stat_support_num: '24/7',
     home_stat_support_lbl: 'выезд',
     home_call_label: 'ПОЗВОНИТЬ — БЕСПЛАТНЫЙ ЗАМЕР',
@@ -207,11 +207,11 @@ export const translations = {
 
     // ── Home ──
     home_company: 'Tekhalmaz LLC',
-    home_about: ' — diamond drilling and reinforced-concrete cutting. Working since 2019: our own equipment, same-day call-out, no dust, impact or cracks.',
-    home_stat_years_num: '5 years',
-    home_stat_years_lbl: 'in business',
-    home_stat_obj_num: '500+',
-    home_stat_obj_lbl: 'projects',
+    home_about: ' — diamond drilling, cutting and demolition of reinforced concrete. Working since 2019, around the clock: our own equipment, same-day call-out, no dust, impact or cracks.',
+    home_stat_years_num: '13,000+',
+    home_stat_years_lbl: 'clients',
+    home_stat_obj_num: '5.0 ★',
+    home_stat_obj_lbl: 'rating',
     home_stat_support_num: '24/7',
     home_stat_support_lbl: 'on call',
     home_call_label: 'CALL — FREE MEASUREMENT',
