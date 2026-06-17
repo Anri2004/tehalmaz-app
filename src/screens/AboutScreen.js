@@ -2,14 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
-import { IconPhone, IconWhatsApp } from '../components/Icons';
+import { IconPhone, IconWhatsApp, IconMail, IconYandexPin, IconAvito } from '../components/Icons';
 
 const PHONE    = '+79181409333';
 const WHATSAPP = 'https://wa.me/79181409333';
 const EMAIL    = 'tehalmaz@bk.ru';
 const MAP      = 'https://yandex.ru/maps/?text=45.111375,38.924446';
 const AVITO    = 'https://www.avito.ru/brands/tehalmaz_krasnodar';
-const GIS      = 'https://2gis.ru/krasnodar/firm/70000001041304349';
+
+// Цвета аватарок отзывов (по кругу)
+const AVATAR_COLORS = ['#E5733A', '#3A9BE5', '#8E5EE8', '#E5536B', '#2BB673', '#E0A92B', '#5AA9A0'];
 
 export default function AboutScreen() {
   const { theme } = useTheme();
@@ -41,9 +43,16 @@ export default function AboutScreen() {
       >
         {reviews.map((r, i) => (
           <View key={i} style={s.reviewCard}>
-            <Text style={s.stars}>★★★★★</Text>
+            <View style={s.reviewHead}>
+              <View style={[s.avatar, { backgroundColor: AVATAR_COLORS[i % AVATAR_COLORS.length] }]}>
+                <Text style={s.avatarTxt}>{(r.name || '?').trim().charAt(0)}</Text>
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={s.reviewName}>{r.name}</Text>
+                <Text style={s.stars}>★★★★★</Text>
+              </View>
+            </View>
             <Text style={s.reviewText}>«{r.text}»</Text>
-            <Text style={s.reviewName}>— {r.name}</Text>
           </View>
         ))}
       </ScrollView>
@@ -70,27 +79,21 @@ export default function AboutScreen() {
         />
         <View style={s.divider} />
         <Row
-          icon={<Text style={s.emoji}>✉️</Text>}
+          icon={<IconMail color={theme.text} size={19} />}
           label={t('about_email')} value={EMAIL}
           onPress={() => Linking.openURL('mailto:' + EMAIL)}
         />
         <View style={s.divider} />
         <Row
-          icon={<Text style={s.emoji}>📍</Text>}
+          icon={<IconYandexPin size={20} />}
           label={t('about_address_label')} value={t('about_address')}
           onPress={() => Linking.openURL(MAP)}
         />
         <View style={s.divider} />
         <Row
-          icon={<Text style={s.emoji}>🟢</Text>}
+          icon={<IconAvito size={22} />}
           label={t('about_avito')}
           onPress={() => Linking.openURL(AVITO)}
-        />
-        <View style={s.divider} />
-        <Row
-          icon={<Text style={s.emoji}>🗺️</Text>}
-          label={t('about_2gis')}
-          onPress={() => Linking.openURL(GIS)}
         />
       </View>
 
@@ -111,9 +114,12 @@ const styles = (t) => StyleSheet.create({
     width: 260, backgroundColor: t.card, borderRadius: 14, padding: 16,
     borderWidth: 0.5, borderColor: t.border,
   },
-  stars:      { color: '#F5A623', fontSize: 14, marginBottom: 8, letterSpacing: 2 },
+  reviewHead: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
+  avatar:     { width: 40, height: 40, borderRadius: 20, alignItems: 'center', justifyContent: 'center', marginRight: 10 },
+  avatarTxt:  { color: '#fff', fontSize: 18, fontWeight: '800' },
+  stars:      { color: '#F5A623', fontSize: 13, letterSpacing: 2, marginTop: 2 },
   reviewText: { color: t.text, fontSize: 13.5, lineHeight: 20 },
-  reviewName: { color: t.textSub, fontSize: 13, fontWeight: '700', marginTop: 10 },
+  reviewName: { color: t.text, fontSize: 14, fontWeight: '700' },
 
   // карточки
   card: {
@@ -125,7 +131,6 @@ const styles = (t) => StyleSheet.create({
   // строка контакта
   row:      { flexDirection: 'row', alignItems: 'center', paddingVertical: 13, paddingHorizontal: 12 },
   rowIcon:  { width: 36, height: 36, borderRadius: 10, backgroundColor: t.chip, alignItems: 'center', justifyContent: 'center', marginRight: 12 },
-  emoji:    { fontSize: 18 },
   rowLabel: { color: t.text, fontSize: 15, fontWeight: '600' },
   rowValue: { color: t.textSub, fontSize: 13, marginTop: 2 },
   rowArrow: { color: t.textMuted, fontSize: 22, marginLeft: 8 },

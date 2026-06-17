@@ -65,6 +65,31 @@ export const IconWhatsApp = ({ color = '#fff', size = 22 }) => (
   </svg>`} />
 );
 
+export const IconMail = ({ color, size = 20 }) => (
+  <SvgXml width={size} height={size} xml={`<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="${color}" stroke-width="1.8"/>
+    <path d="M4 7L12 12.5L20 7" stroke="${color}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`} />
+);
+
+// Пин в стиле Яндекс.Карт (фирменный красный)
+export const IconYandexPin = ({ size = 20 }) => (
+  <SvgXml width={size} height={size} xml={`<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 22s7-6 7-12A7 7 0 1 0 5 10c0 6 7 12 7 12Z" fill="#FF3333"/>
+    <circle cx="12" cy="10" r="2.6" fill="#fff"/>
+  </svg>`} />
+);
+
+// Логотип Avito (четыре фирменных круга)
+export const IconAvito = ({ size = 22 }) => (
+  <SvgXml width={size} height={size} xml={`<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="7.5" cy="7" r="4.2" fill="#00C8B4"/>
+    <circle cx="17" cy="8" r="3.2" fill="#0098EE"/>
+    <circle cx="7" cy="16.5" r="3.2" fill="#965EEB"/>
+    <circle cx="16.5" cy="16.5" r="4.2" fill="#FF4053"/>
+  </svg>`} />
+);
+
 export const IconAbout = ({ color, size = 24 }) => (
   <SvgXml width={size} height={size} xml={`<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="12" cy="12" r="9" stroke="${color}" stroke-width="1.8"/>

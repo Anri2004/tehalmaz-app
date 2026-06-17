@@ -6,11 +6,10 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
-import { LogoFull, IconPhone, IconWhatsApp, IconMoon, IconSun } from '../components/Icons';
+import { LogoFull, IconPhone, IconMoon, IconSun } from '../components/Icons';
 import LangToggle from '../components/LangToggle';
 
 const PHONE = '+79181409333';
-const WHATSAPP = 'https://wa.me/79181409333';
 
 export default function HomeScreen({ navigation }) {
   const { theme, isDark, toggleTheme } = useTheme();
@@ -75,16 +74,6 @@ export default function HomeScreen({ navigation }) {
             <Text style={s.callNumber}>+7 (918) 140-93-33</Text>
           </View>
           <Text style={s.callArrow}>{'>'}</Text>
-        </TouchableOpacity>
-
-        {/* WhatsApp */}
-        <TouchableOpacity
-          style={s.btnWhatsApp}
-          onPress={() => Linking.openURL(WHATSAPP)}
-          activeOpacity={0.85}
-        >
-          <IconWhatsApp color="#fff" size={20} />
-          <Text style={s.btnWhatsAppText}>{t('home_btn_whatsapp')}</Text>
         </TouchableOpacity>
 
         {/* Калькулятор */}
@@ -152,12 +141,6 @@ const styles = (t) => StyleSheet.create({
     alignItems: 'center', marginBottom: 10,
   },
   btnRedText: { color: '#fff', fontWeight: '700', fontSize: 16 },
-
-  btnWhatsApp: {
-    backgroundColor: '#25D366', borderRadius: 14, padding: 15, marginBottom: 10,
-    flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10,
-  },
-  btnWhatsAppText: { color: '#fff', fontWeight: '700', fontSize: 16 },
 
   btnOutline: {
     backgroundColor: t.card, borderRadius: 14, padding: 16,
