@@ -144,8 +144,6 @@ export default function OrderScreen({ route }) {
   return (
     <>
       <ScrollView style={s.container} contentContainerStyle={s.content}>
-        <Text style={s.subtitle}>{t('ord_subtitle')}</Text>
-
         <Text style={s.label}>{t('ord_name')}</Text>
         <TextInput style={[s.input, nameWarn && s.inputWarn]} placeholder={t('ord_name_ph')} placeholderTextColor={theme.textMuted}
           value={name} onChangeText={setName} autoCapitalize="words" maxLength={60} />
@@ -195,6 +193,7 @@ export default function OrderScreen({ route }) {
           </Text>
         </TouchableOpacity>
 
+        <Text style={s.callbackNote}>⏱ {t('ord_subtitle')}</Text>
         <TouchableOpacity style={[s.btnRed, !agreed && s.btnOff]} onPress={submit} disabled={!agreed || loading}>
           {loading ? <ActivityIndicator color="#fff" /> : <Text style={s.btnRedText}>{t('ord_submit')}</Text>}
         </TouchableOpacity>
@@ -225,7 +224,7 @@ export default function OrderScreen({ route }) {
 const styles = (t) => StyleSheet.create({
   container: { flex: 1, backgroundColor: t.bg },
   content:   { padding: 16, paddingBottom: 40 },
-  subtitle:  { color: t.textSub, fontSize: 13, marginBottom: 20 },
+  callbackNote: { color: t.text, fontSize: 14, fontWeight: '600', textAlign: 'center', marginBottom: 12 },
 
   label:   { fontSize: 15, fontWeight: '600', color: t.text, marginBottom: 8, marginTop: 4 },
   input:    { backgroundColor: t.input, borderRadius: 12, padding: 14, color: t.text, fontSize: 15, marginBottom: 16, borderWidth: 0.5, borderColor: t.inputBorder },
