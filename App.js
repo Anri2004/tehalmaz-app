@@ -62,8 +62,8 @@ function ThemeToggle() {
 function HeaderTitle({ text, theme }) {
   return (
     <View style={{ justifyContent: 'center' }}>
-      <Text style={{ color: theme.text, fontWeight: '800', fontSize: 22, letterSpacing: 0.2 }}>{text}</Text>
-      <View style={{ width: 34, height: 3, borderRadius: 2, backgroundColor: theme.red, marginTop: 5 }} />
+      <Text style={{ color: theme.text, fontWeight: '700', fontSize: 17 }}>{text}</Text>
+      <View style={{ width: 26, height: 3, borderRadius: 2, backgroundColor: theme.red, marginTop: 4 }} />
     </View>
   );
 }
