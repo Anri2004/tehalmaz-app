@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { useContext, useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
 import HomeScreen       from './src/screens/HomeScreen';
@@ -58,6 +58,16 @@ function ThemeToggle() {
   );
 }
 
+// Заголовок экрана: крупный текст + красная чёрточка-акцент снизу.
+function HeaderTitle({ text, theme }) {
+  return (
+    <View style={{ justifyContent: 'center' }}>
+      <Text style={{ color: theme.text, fontWeight: '800', fontSize: 22, letterSpacing: 0.2 }}>{text}</Text>
+      <View style={{ width: 34, height: 3, borderRadius: 2, backgroundColor: theme.red, marginTop: 5 }} />
+    </View>
+  );
+}
+
 // Группа кнопок в шапке: язык + тема.
 function HeaderControls() {
   return (
@@ -102,7 +112,7 @@ function AppNavigator() {
             borderBottomColor: theme.border,
           },
           headerTintColor:      theme.text,
-          headerTitleStyle:     { fontWeight: '800', fontSize: 22, letterSpacing: 0.2 },
+          headerTitle:          () => <HeaderTitle text={t(TAB_KEY[route.name])} theme={theme} />,
           headerTitleAlign:     'left',
           headerRight: () => <HeaderControls />,
         })}
