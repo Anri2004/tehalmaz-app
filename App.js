@@ -9,12 +9,13 @@ import HomeScreen       from './src/screens/HomeScreen';
 import ServicesScreen   from './src/screens/ServicesScreen';
 import CalculatorScreen from './src/screens/CalculatorScreen';
 import OrderScreen      from './src/screens/OrderScreen';
+import AboutScreen      from './src/screens/AboutScreen';
 import SplashScreen     from './src/screens/SplashScreen';
 
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ThemeProvider, ThemeContext } from './src/context/ThemeContext';
 import { LanguageProvider, useLang } from './src/context/LanguageContext';
-import { IconHome, IconServices, IconCalc, IconOrder, IconMoon, IconSun } from './src/components/Icons';
+import { IconHome, IconServices, IconCalc, IconOrder, IconAbout, IconMoon, IconSun } from './src/components/Icons';
 import LangToggle from './src/components/LangToggle';
 
 const Tab = createBottomTabNavigator();
@@ -25,6 +26,7 @@ const TAB_KEY = {
   'Услуги': 'tab_services',
   'Калькулятор': 'tab_calc',
   'Заявка': 'tab_order',
+  'О нас': 'tab_about',
 };
 
 function NavIcon({ name, color }) {
@@ -33,6 +35,7 @@ function NavIcon({ name, color }) {
   if (name === 'Услуги')      return <IconServices color={color} size={size} />;
   if (name === 'Калькулятор') return <IconCalc     color={color} size={size} />;
   if (name === 'Заявка')      return <IconOrder    color={color} size={size} />;
+  if (name === 'О нас')       return <IconAbout    color={color} size={size} />;
   return null;
 }
 
@@ -108,6 +111,7 @@ function AppNavigator() {
         <Tab.Screen name="Услуги"      component={ServicesScreen} />
         <Tab.Screen name="Калькулятор" component={CalculatorScreen} />
         <Tab.Screen name="Заявка"      component={OrderScreen} />
+        <Tab.Screen name="О нас"       component={AboutScreen} />
       </Tab.Navigator>
     </>
   );

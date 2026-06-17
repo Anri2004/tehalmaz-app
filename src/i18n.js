@@ -184,6 +184,32 @@ export const translations = {
     ord_success_again: 'Отправить ещё заявку',
     ord_privacy_title: 'Политика конфиденциальности',
     ord_privacy_accept: 'Принимаю и закрыть',
+
+    // ── О нас (отзывы, география, контакты) ──
+    tab_about: 'О нас',
+    home_btn_whatsapp: 'Написать в WhatsApp',
+    about_reviews_title: 'Отзывы клиентов',
+    about_reviews_sub: '5,0 ★ · 346 отзывов на Avito',
+    reviews: [
+      { name: 'Дмитрий', text: 'Несколько отверстий под коммуникации в бетонной стене. Алмазное бурение оказалось аккуратнее: стены целые, минимум времени. Профессионально и вежливо.' },
+      { name: 'Виктория', text: 'Сверление в монолите, помещения уже с ремонтом — важно было без пыли. Всё чётко, вежливо, в срок. Рекомендую!' },
+      { name: 'Светлана', text: 'Лучший мастер! Приехал чётко по времени, всё сделал аккуратно, быстро и даже тихо.' },
+      { name: 'Павел', text: 'Два отверстия 160 мм за 30 минут. Проконсультировали, приехали в тот же день. Всё чётко.' },
+      { name: 'Алексей', text: 'Прекрасная команда, сделали быстро и качественно. Цена лучшая по Новороссийску!' },
+      { name: 'Сергей', text: 'По запросу сразу связался менеджер, всё пояснил. Всё быстро, корректно и чисто.' },
+      { name: 'Михаил', text: 'Работа выполнена на отлично и в срок. Обращаемся уже не первый раз.' },
+    ],
+    about_geo_title: 'География выезда',
+    about_geo_text: 'Работаем по всему Югу России: Краснодар, Сочи, Новороссийск, Анапа, Геленджик, Туапсе, Тимашевск, Усть-Лабинск, Крымск, Кропоткин, Белореченск, Горячий Ключ, Майкоп, Ростов-на-Дону и другие.',
+    about_contacts_title: 'Контакты',
+    about_phone: 'Позвонить',
+    about_whatsapp: 'Написать в WhatsApp',
+    about_email: 'Электронная почта',
+    about_address_label: 'Офис в Краснодаре',
+    about_address: 'г. Краснодар, ул. Придорожная, 5',
+    about_avito: 'Профиль на Avito',
+    about_2gis: 'Мы на 2ГИС',
+    about_requisites: 'ООО «ТЕХАЛМАЗ» · ИНН 2311284038 · ОГРН 1192375011608',
     privacy_text: `ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
 
 ООО «ТЕХАЛМАЗ» (ИНН 2311284038, ОГРН 1192375011608)
@@ -382,6 +408,32 @@ export const translations = {
     ord_success_again: 'Send another request',
     ord_privacy_title: 'Privacy policy',
     ord_privacy_accept: 'Accept and close',
+
+    // ── About (reviews, geography, contacts) ──
+    tab_about: 'About',
+    home_btn_whatsapp: 'Message on WhatsApp',
+    about_reviews_title: 'Customer reviews',
+    about_reviews_sub: '5.0 ★ · 346 reviews on Avito',
+    reviews: [
+      { name: 'Dmitry', text: 'A few holes for utilities in a concrete wall. Diamond drilling was much cleaner: walls intact, minimal time. Professional and polite.' },
+      { name: 'Victoria', text: 'Drilling in monolith — the rooms were already renovated, so no dust was crucial. Precise, polite, on time. Recommend!' },
+      { name: 'Svetlana', text: 'The best specialist! Arrived exactly on time, did everything neatly, fast and even quietly.' },
+      { name: 'Pavel', text: 'Two 160 mm holes in 30 minutes. They advised us and came the same day. All clear and precise.' },
+      { name: 'Alexey', text: 'Great team, did it fast and well. Best price in Novorossiysk!' },
+      { name: 'Sergey', text: 'A manager contacted me right after the request and explained everything. Fast, correct and clean.' },
+      { name: 'Mikhail', text: 'The work was done excellently and on time. Not our first time using them.' },
+    ],
+    about_geo_title: 'Service area',
+    about_geo_text: 'We work across Southern Russia: Krasnodar, Sochi, Novorossiysk, Anapa, Gelendzhik, Tuapse, Timashevsk, Ust-Labinsk, Krymsk, Kropotkin, Belorechensk, Goryachy Klyuch, Maykop, Rostov-on-Don and more.',
+    about_contacts_title: 'Contacts',
+    about_phone: 'Call',
+    about_whatsapp: 'Message on WhatsApp',
+    about_email: 'Email',
+    about_address_label: 'Office in Krasnodar',
+    about_address: 'Krasnodar, Pridorozhnaya St., 5',
+    about_avito: 'Avito profile',
+    about_2gis: 'Find us on 2GIS',
+    about_requisites: 'Tekhalmaz LLC · INN 2311284038 · OGRN 1192375011608',
     privacy_text: `PRIVACY POLICY
 
 Tekhalmaz LLC (INN 2311284038, OGRN 1192375011608)
