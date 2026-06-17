@@ -1,12 +1,15 @@
 ﻿import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
-  TouchableOpacity, Alert, ActivityIndicator, Linking, Modal,
+  TouchableOpacity, Alert, ActivityIndicator, Linking, Modal, Image,
 } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import * as ImageManipulator from 'expo-image-manipulator';
 import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
 
 const API_URL = 'https://functions.yandexcloud.net/d4efrcscfce1vugur7lr';
+const MAX_PHOTOS = 5;
 
 export default function OrderScreen({ route }) {
   const { theme } = useTheme();
@@ -20,6 +23,7 @@ export default function OrderScreen({ route }) {
   const [loading,     setLoading]    = useState(false);
   const [privacyVis,  setPrivacy]    = useState(false);
   const [sent,        setSent]       = useState(false);
+  const [photos,      setPhotos]     = useState([]); // [{ uri, base64 }]
 
   // Автозаполнение из калькулятора («Заказать по этой цене»)
   useEffect(() => {
@@ -62,6 +66,40 @@ export default function OrderScreen({ route }) {
     setPhone(f);
   };
 
+  // Выбор фото из галереи + сжатие (до ~1280px) для лёгкой отправки
+  const pickPhotos = async () => {
+    if (photos.length >= MAX_PHOTOS) {
+      Alert.alert(t('ord_photos_label'), t('ord_photo_max'));
+      return;
+    }
+    const perm = await ImagePicker.requestMediaLibraryPermissionsAsync();
+    if (!perm.granted) { Alert.alert(t('ord_photos_label'), t('ord_photo_perm')); return; }
+
+    const res = await ImagePicker.launchImageLibraryAsync({
+      allowsMultipleSelection: true,
+      selectionLimit: MAX_PHOTOS - photos.length,
+      quality: 1,
+    });
+    if (res.canceled) return;
+
+    try {
+      const processed = [];
+      for (const asset of res.assets) {
+        const m = await ImageManipulator.manipulateAsync(
+          asset.uri,
+          [{ resize: { width: 1280 } }],
+          { compress: 0.5, format: ImageManipulator.SaveFormat.JPEG, base64: true }
+        );
+        processed.push({ uri: m.uri, base64: m.base64 });
+      }
+      setPhotos(prev => [...prev, ...processed].slice(0, MAX_PHOTOS));
+    } catch (e) {
+      Alert.alert(t('err_title'), String(e.message || e));
+    }
+  };
+
+  const removePhoto = (i) => setPhotos(prev => prev.filter((_, idx) => idx !== i));
+
   const validate = () => {
     if (!name.trim())              { Alert.alert(t('err_title'), t('err_name_empty')); return false; }
     if (/\d/.test(name))           { Alert.alert(t('err_title'), t('err_name_digits')); return false; }
@@ -75,7 +113,7 @@ export default function OrderScreen({ route }) {
     if (!validate()) return;
     setLoading(true);
     try {
-      const res  = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, description }) });
+      const res  = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, description, photos: photos.map(p => p.base64) }) });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || t('err_server'));
       setLoading(false); setSent(true);
@@ -96,7 +134,7 @@ export default function OrderScreen({ route }) {
         <TouchableOpacity style={[s.btnRed, { width: '100%', marginTop: 8 }]} onPress={() => Linking.openURL('tel:+79181409333')}>
           <Text style={s.btnRedText}>{t('ord_success_call')}</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => { setSent(false); setName(''); setPhone('+7 '); setDesc(''); setAgreed(false); }}>
+        <TouchableOpacity onPress={() => { setSent(false); setName(''); setPhone('+7 '); setDesc(''); setAgreed(false); setPhotos([]); }}>
           <Text style={{ color: theme.textMuted, marginTop: 16, fontSize: 14 }}>{t('ord_success_again')}</Text>
         </TouchableOpacity>
       </View>
@@ -125,6 +163,25 @@ export default function OrderScreen({ route }) {
           value={description} onChangeText={setDesc}
           multiline numberOfLines={4} textAlignVertical="top" maxLength={1000} />
         {descWarn ? <Text style={s.warn}>⚠ {descWarn}</Text> : null}
+
+        {/* Прикрепить фото */}
+        <Text style={s.label}>{t('ord_photos_label')}</Text>
+        <View style={s.photoRow}>
+          {photos.map((p, i) => (
+            <View key={i} style={s.photoBox}>
+              <Image source={{ uri: p.uri }} style={s.photoImg} />
+              <TouchableOpacity style={s.photoRemove} onPress={() => removePhoto(i)}>
+                <Text style={s.photoRemoveTxt}>✕</Text>
+              </TouchableOpacity>
+            </View>
+          ))}
+          {photos.length < MAX_PHOTOS && (
+            <TouchableOpacity style={s.photoAdd} onPress={pickPhotos} activeOpacity={0.7}>
+              <Text style={s.photoAddPlus}>＋</Text>
+              <Text style={s.photoAddTxt}>{t('ord_add_photo')}</Text>
+            </TouchableOpacity>
+          )}
+        </View>
 
         <TouchableOpacity style={s.checkRow} onPress={() => setAgreed(!agreed)} activeOpacity={0.8}>
           <View style={[s.checkbox, agreed && s.checkboxOn]}>
@@ -175,6 +232,15 @@ const styles = (t) => StyleSheet.create({
   inputWarn:{ borderWidth: 1, borderColor: '#F9A825' },
   textarea: { height: 100 },
   warn:     { color: '#F9A825', fontSize: 12.5, marginTop: -10, marginBottom: 12, marginLeft: 2 },
+
+  photoRow:   { flexDirection: 'row', flexWrap: 'wrap', gap: 10, marginBottom: 20, marginTop: 2 },
+  photoBox:   { width: 72, height: 72, borderRadius: 10, overflow: 'visible' },
+  photoImg:   { width: 72, height: 72, borderRadius: 10 },
+  photoRemove:{ position: 'absolute', top: -6, right: -6, width: 22, height: 22, borderRadius: 11, backgroundColor: t.red, alignItems: 'center', justifyContent: 'center' },
+  photoRemoveTxt: { color: '#fff', fontSize: 12, fontWeight: '700' },
+  photoAdd:   { width: 72, height: 72, borderRadius: 10, borderWidth: 1, borderColor: t.inputBorder, borderStyle: 'dashed', alignItems: 'center', justifyContent: 'center', backgroundColor: t.input },
+  photoAddPlus: { color: t.textSub, fontSize: 22, lineHeight: 24 },
+  photoAddTxt:  { color: t.textSub, fontSize: 9, marginTop: 2, textAlign: 'center', paddingHorizontal: 2 },
 
   checkRow:   { flexDirection: 'row', alignItems: 'flex-start', gap: 10, marginBottom: 20 },
   checkbox:   { width: 22, height: 22, borderRadius: 5, borderWidth: 1.5, borderColor: t.textMuted, alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: 1 },

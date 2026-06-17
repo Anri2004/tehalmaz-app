@@ -32,6 +32,14 @@
         "barStyle": "dark-content"
       }
     },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Доступ к фото нужен, чтобы прикрепить их к заявке."
+        }
+      ]
+    ],
     "extra": {
       "apiUrl": "https://functions.yandexcloud.net/d4efrcscfce1vugur7lr"
     }
