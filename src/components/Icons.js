@@ -92,9 +92,9 @@ export const IconAvito = ({ size = 22 }) => (
 
 export const IconAbout = ({ color, size = 24 }) => (
   <SvgXml width={size} height={size} xml={`<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="9" stroke="${color}" stroke-width="1.8"/>
-    <line x1="12" y1="11" x2="12" y2="16.5" stroke="${color}" stroke-width="1.8" stroke-linecap="round"/>
-    <circle cx="12" cy="7.8" r="1.1" fill="${color}"/>
+    <circle cx="9" cy="8" r="3" stroke="${color}" stroke-width="1.7"/>
+    <path d="M3 20c0-3 2.7-5 6-5s6 2 6 5" stroke="${color}" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M16 5.6a3 3 0 0 1 0 5.4M17.5 20c0-2.6-1-4.2-3-4.8" stroke="${color}" stroke-width="1.5" stroke-linecap="round"/>
   </svg>`} />
 );
 
