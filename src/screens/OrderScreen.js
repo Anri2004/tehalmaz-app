@@ -9,6 +9,7 @@ import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
 
 const API_URL = 'https://functions.yandexcloud.net/d4efrcscfce1vugur7lr';
+const APP_TOKEN = 'thalmz_44aa116d0cacaeafcd952f8ec290d145'; // должен совпадать с переменной APP_TOKEN на сервере
 const MAX_PHOTOS = 5;
 
 export default function OrderScreen({ route }) {
@@ -113,7 +114,11 @@ export default function OrderScreen({ route }) {
     if (!validate()) return;
     setLoading(true);
     try {
-      const res  = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, phone, description, photos: photos.map(p => p.base64) }) });
+      const res  = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-App-Token': APP_TOKEN },
+        body: JSON.stringify({ name, phone, description, photos: photos.map(p => p.base64) }),
+      });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || t('err_server'));
       setLoading(false); setSent(true);
