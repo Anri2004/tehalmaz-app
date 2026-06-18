@@ -12,7 +12,7 @@ import OrderScreen      from './src/screens/OrderScreen';
 import AboutScreen      from './src/screens/AboutScreen';
 import SplashScreen     from './src/screens/SplashScreen';
 
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ThemeProvider, ThemeContext } from './src/context/ThemeContext';
 import { LanguageProvider, useLang } from './src/context/LanguageContext';
 import { IconHome, IconServices, IconCalc, IconOrder, IconAbout, IconMoon, IconSun } from './src/components/Icons';
@@ -81,6 +81,7 @@ function HeaderControls() {
 function AppNavigator() {
   const { theme, isDark } = useContext(ThemeContext);
   const { t } = useLang();
+  const insets = useSafeAreaInsets();
 
   return (
     <>
@@ -99,9 +100,9 @@ function AppNavigator() {
             backgroundColor: theme.navbar,
             borderTopColor:  theme.border,
             borderTopWidth:  0.5,
-            paddingBottom:   6,
+            paddingBottom:   6 + insets.bottom,
             paddingTop:      4,
-            height:          58,
+            height:          58 + insets.bottom,
           },
           tabBarLabelStyle: { fontSize: 11 },
           headerStyle: {
