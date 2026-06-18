@@ -6,11 +6,6 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./src/assets/icon.png",
-    "splash": {
-      "image": "./src/assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": false,
@@ -33,17 +28,26 @@
       "blockedPermissions": [
         "android.permission.RECORD_AUDIO",
         "android.permission.CAMERA"
-      ],
-      "navigationBar": {
-        "backgroundColor": "#FFFFFF",
-        "barStyle": "dark-content"
-      }
+      ]
+    },
+    "androidNavigationBar": {
+      "backgroundColor": "#FFFFFF",
+      "barStyle": "dark-content"
     },
     "plugins": [
       [
         "expo-image-picker",
         {
           "photosPermission": "Доступ к фото нужен, чтобы прикрепить их к заявке."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./src/assets/splash.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
         }
       ]
     ],
