@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect } from 'react';
 import {
   View, Text, StyleSheet, ScrollView, TextInput,
-  TouchableOpacity, Alert, ActivityIndicator, Linking, Modal, Image,
+  TouchableOpacity, Alert, ActivityIndicator, Linking, Image,
 } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import * as ImageManipulator from 'expo-image-manipulator';
@@ -11,6 +11,7 @@ import { useLang } from '../context/LanguageContext';
 const API_URL = 'https://functions.yandexcloud.net/d4efrcscfce1vugur7lr';
 const APP_TOKEN = 'thalmz_44aa116d0cacaeafcd952f8ec290d145'; // должен совпадать с переменной APP_TOKEN на сервере
 const MAX_PHOTOS = 5;
+const PRIVACY_URL = 'https://tekhalmaz.ru/privacy.html';
 
 export default function OrderScreen({ route }) {
   const { theme } = useTheme();
@@ -22,7 +23,6 @@ export default function OrderScreen({ route }) {
   const [description, setDesc]       = useState('');
   const [agreed,      setAgreed]     = useState(false);
   const [loading,     setLoading]    = useState(false);
-  const [privacyVis,  setPrivacy]    = useState(false);
   const [sent,        setSent]       = useState(false);
   const [photos,      setPhotos]     = useState([]); // [{ uri, base64 }]
 
@@ -192,7 +192,7 @@ export default function OrderScreen({ route }) {
           </View>
           <Text style={s.checkText}>
             {t('ord_consent_1')}
-            <Text style={{ color: theme.red, textDecorationLine: 'underline' }} onPress={() => setPrivacy(true)}>
+            <Text style={{ color: theme.red, textDecorationLine: 'underline' }} onPress={() => Linking.openURL(PRIVACY_URL)}>
               {t('ord_consent_link')}
             </Text>
           </Text>
@@ -205,23 +205,6 @@ export default function OrderScreen({ route }) {
 
         <Text style={s.footerNote}>{t('ord_footer')}</Text>
       </ScrollView>
-
-      <Modal visible={privacyVis} animationType="slide" onRequestClose={() => setPrivacy(false)}>
-        <View style={[s.modal, { backgroundColor: theme.bg }]}>
-          <View style={[s.modalHeader, { borderBottomColor: theme.border }]}>
-            <Text style={[s.modalTitle, { color: theme.text }]}>{t('ord_privacy_title')}</Text>
-            <TouchableOpacity onPress={() => setPrivacy(false)}>
-              <Text style={{ color: theme.textMuted, fontSize: 20, paddingLeft: 16 }}>✕</Text>
-            </TouchableOpacity>
-          </View>
-          <ScrollView style={{ flex: 1, padding: 16 }}>
-            <Text style={{ color: theme.text, fontSize: 14, lineHeight: 22 }}>{t('privacy_text')}</Text>
-          </ScrollView>
-          <TouchableOpacity style={[s.btnRed, { margin: 16 }]} onPress={() => { setPrivacy(false); setAgreed(true); }}>
-            <Text style={s.btnRedText}>{t('ord_privacy_accept')}</Text>
-          </TouchableOpacity>
-        </View>
-      </Modal>
     </>
   );
 }
