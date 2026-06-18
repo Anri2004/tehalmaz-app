@@ -2,13 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import { useTheme } from '../context/ThemeContext';
 import { useLang } from '../context/LanguageContext';
-import { IconPhone, IconWhatsApp, IconMail, IconYandexPin, IconAvito } from '../components/Icons';
+import { IconPhone, IconWhatsApp, IconMail, IconYandexPin, IconAvito, IconOrder } from '../components/Icons';
 
-const PHONE    = '+79181409333';
-const WHATSAPP = 'https://wa.me/79181409333';
-const EMAIL    = 'tehalmaz@bk.ru';
-const MAP      = 'https://yandex.ru/maps/?text=45.111375,38.924446';
-const AVITO    = 'https://www.avito.ru/brands/tehalmaz_krasnodar';
+const PHONE       = '+79181409333';
+const WHATSAPP    = 'https://wa.me/79181409333';
+const EMAIL       = 'tehalmaz@bk.ru';
+const MAP         = 'https://yandex.ru/maps/?text=45.111375,38.924446';
+const AVITO       = 'https://www.avito.ru/brands/tehalmaz_krasnodar';
+const PRIVACY_URL = 'https://tekhalmaz.ru/privacy.html';
 
 // Цвета аватарок отзывов (по кругу)
 const AVATAR_COLORS = ['#E5733A', '#3A9BE5', '#8E5EE8', '#E5536B', '#2BB673', '#E0A92B', '#5AA9A0'];
@@ -94,6 +95,16 @@ export default function AboutScreen() {
           icon={<IconAvito size={22} />}
           label={t('about_avito')}
           onPress={() => Linking.openURL(AVITO)}
+        />
+      </View>
+
+      {/* ДОКУМЕНТЫ */}
+      <Text style={[s.sectionTitle, { marginTop: 24 }]}>{t('about_legal_title')}</Text>
+      <View style={s.card}>
+        <Row
+          icon={<IconOrder color={theme.text} size={18} />}
+          label={t('about_privacy')}
+          onPress={() => Linking.openURL(PRIVACY_URL)}
         />
       </View>
 

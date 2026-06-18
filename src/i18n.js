@@ -209,6 +209,8 @@ export const translations = {
     about_address: 'г. Краснодар, ул. Придорожная, 5',
     about_avito: 'Профиль на Avito',
     about_2gis: 'Мы на 2ГИС',
+    about_legal_title: 'Документы',
+    about_privacy: 'Политика конфиденциальности',
     about_requisites: 'ООО «ТЕХАЛМАЗ» · ИНН 2311284038 · ОГРН 1192375011608',
     privacy_text: `ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ
 
@@ -433,6 +435,8 @@ export const translations = {
     about_address: 'Krasnodar, Pridorozhnaya St., 5',
     about_avito: 'Avito profile',
     about_2gis: 'Find us on 2GIS',
+    about_legal_title: 'Documents',
+    about_privacy: 'Privacy policy',
     about_requisites: 'Tekhalmaz LLC · INN 2311284038 · OGRN 1192375011608',
     privacy_text: `PRIVACY POLICY
 
