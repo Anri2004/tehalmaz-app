@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar, View, Text } from 'react-native';
@@ -10,7 +10,6 @@ import ServicesScreen   from './src/screens/ServicesScreen';
 import CalculatorScreen from './src/screens/CalculatorScreen';
 import OrderScreen      from './src/screens/OrderScreen';
 import AboutScreen      from './src/screens/AboutScreen';
-import SplashScreen     from './src/screens/SplashScreen';
 
 import { SafeAreaProvider, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ThemeProvider, ThemeContext } from './src/context/ThemeContext';
@@ -142,12 +141,6 @@ function AppNavigator() {
 }
 
 export default function App() {
-  const [splashDone, setSplashDone] = useState(false);
-
-  if (!splashDone) {
-    return <SplashScreen onDone={() => setSplashDone(true)} />;
-  }
-
   return (
     <SafeAreaProvider>
       <ThemeProvider>
